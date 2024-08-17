@@ -1,21 +1,16 @@
 const express = require('express');
-const controller = require('../controller/Cuser');
 const router = express.Router();
+const controller = require('../controller/Cuser');
 
-// get /users/register
-router.get('/register', controller.getUsers);
-// post /users/register
-//router.post('/register', uploadProfile.single('profile_img'), controller.postUsers);
 
-// get /users/login
-router.get('/login', controller.getLogin);
-
-// post /users/login
+router.post('/register', controller.postUser);
 router.post('/login', controller.postLogin);
 
-//post /users/logout
-router.get('/logout', controller.getLogout);
+// router.post('/login/google', controller.postGoogleLogin);
+router.get('/auth/google', controller.getCode);
+router.get('/oauth2/redirect', controller.getRedirect);
 
-
+router.delete('/mypage/delete', controller.deleteUser);
+router.patch('/mypage/edit', controller.patchUser);
 
 module.exports = router;
