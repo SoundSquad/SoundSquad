@@ -1,6 +1,7 @@
 import { useState } from "react";
 import logo from "./assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
+import { GoogleLogin } from "@react-oauth/google";
 
 function LoginSignupForm() {
   const [isLoginMode, setIsLoginMode] = useState(true);
@@ -25,6 +26,14 @@ function LoginSignupForm() {
             </h2>
             <div className="border-2 w-20 border-red-600 mx-auto mb-7"></div>
             <div className="flex justify-center my-2">
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
               <a
                 href="#"
                 className="border-2 border-gray-200 rounded-full p-3 mx-1"
