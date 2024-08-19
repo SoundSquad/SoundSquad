@@ -18,7 +18,12 @@ app.use('/user', userRouter);
 
 app.get('*', (req, res) => {
     res.render('404');
-})
+});
+
+dotenv.config({
+    path: path.resolve(__dirname, ".env"),
+}); // default .env file
+
 app.listen(PORT, () => {
             console.log('Database connected!');
             console.log(`Server running in PORT: ${PORT}`);
