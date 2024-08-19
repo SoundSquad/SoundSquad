@@ -1,13 +1,16 @@
-import './App.css'
+// import './App.css'
+
+import LoginSignupForm from './pages/login'
+import MyPage from './pages/Mypage'
 
 function App() {
 
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-      new
-    </h1>
+    <>
+      <MyPage />
+      <LoginSignupForm />
+    </>
   )
 }
 
