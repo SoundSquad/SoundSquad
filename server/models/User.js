@@ -33,7 +33,12 @@ const User = (Sequelize, DataTypes) => {
             // token: {
             //     type: DataTypes.TEXT,
             //     allowNull: false
-            // }
+            // },
+            credit: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                defaultValue: 0
+            }
         },
         // param3: 모델 옵션 정의
         {
