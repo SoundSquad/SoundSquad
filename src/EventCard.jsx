@@ -1,17 +1,13 @@
 import { Card, CardBody, Typography } from "@material-tailwind/react";
 
-export function EventCard() {
+export function EventCard({ title, date }) {
   return (
     <Card className="mt-6 w-60 h-64 ">
       <CardBody>
         <Typography variant="h5" color="blue-gray" className="mb-2">
-          UI/UX Review Check
+          {title}
         </Typography>
-        <Typography>
-          The place is close to Barceloneta Beach and bus stop just 2 min by
-          walk and near to &quot;Naviglio&quot; where you can enjoy the main
-          night life in Barcelona.
-        </Typography>
+        <Typography>Date: {new Date(date).toLocaleDateString()}</Typography>
       </CardBody>
     </Card>
   );

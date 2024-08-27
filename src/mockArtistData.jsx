@@ -9,6 +9,8 @@ export const artists = [
     upcomingEvents: [
       { id: 1, title: "Concert in New York", date: "2024-09-15" },
       { id: 2, title: "Album Signing", date: "2024-10-01" },
+      { id: 3, title: "Charity Gala", date: "2024-11-10" },
+      { id: 4, title: "Holiday Special Concert", date: "2024-12-20" },
     ],
     reviews: [
       {
