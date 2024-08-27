@@ -83,6 +83,7 @@ function LoginSignupForm() {
               or create a new account
             </p>
 
+
             <div className="flex flex-col items-center">
               <input
                 type="text"
@@ -91,6 +92,11 @@ function LoginSignupForm() {
               />
               <input
                 type="password"
+
+                className="bg-gray-100 w-64 p-2 rounded-md mb-8"
+                placeholder="Password"
+              />
+
                 className="bg-gray-100 w-64 p-2 rounded-md mb-2"
                 placeholder="Password"
               />
@@ -107,6 +113,7 @@ function LoginSignupForm() {
                 <option value="40s">40-49</option>
                 <option value="50+">50 or more</option>
               </select>
+
               <button className="border-2 border-red-600 rounded-full px-12 py-2 inline-block font-semibold text-red-600 hover:bg-red-600 hover:text-white">
                 Sign Up
               </button>
