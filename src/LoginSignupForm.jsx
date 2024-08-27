@@ -82,6 +82,8 @@ function LoginSignupForm() {
             <p className="text-center text-gray-400 my-3">
               or create a new account
             </p>
+
+
             <div className="flex flex-col items-center">
               <input
                 type="text"
@@ -90,9 +92,28 @@ function LoginSignupForm() {
               />
               <input
                 type="password"
+
                 className="bg-gray-100 w-64 p-2 rounded-md mb-8"
                 placeholder="Password"
               />
+
+                className="bg-gray-100 w-64 p-2 rounded-md mb-2"
+                placeholder="Password"
+              />
+              <select className="bg-gray-100 w-64 p-2 rounded-md mb-2">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              <select className="bg-gray-100 w-64 p-2 rounded-md mb-8">
+                <option value="">Select Age Group</option>
+                <option value="10s">10-19</option>
+                <option value="20s">20-29</option>
+                <option value="30s">30-39</option>
+                <option value="40s">40-49</option>
+                <option value="50+">50 or more</option>
+              </select>
+
               <button className="border-2 border-red-600 rounded-full px-12 py-2 inline-block font-semibold text-red-600 hover:bg-red-600 hover:text-white">
                 Sign Up
               </button>
