@@ -69,20 +69,11 @@ function LoginSignupForm() {
           }`}
         >
           <img src={logo} alt="Logo" className="w-36 h-16" />
-          <div className="py-5">
+          <div>
             <h2 className="text-3xl font-bold text-red-600 mb-2 text-center">
               Sign Up
             </h2>
-            <div className="border-2 w-24 border-red-600 inline-block mb-2 ml-32"></div>
-            <div className="flex justify-center my-2">
-              <button className="border-2 border-gray-200 rounded-full p-3 mx-1">
-                <FcGoogle className="text-lg" />
-              </button>
-            </div>
-            <p className="text-center text-gray-400 my-3">
-              or create a new account
-            </p>
-
+            <div className="border-2 w-28 border-red-600 mx-auto mb-6"></div>
 
             <div className="flex flex-col items-center">
               <input
@@ -92,11 +83,6 @@ function LoginSignupForm() {
               />
               <input
                 type="password"
-
-                className="bg-gray-100 w-64 p-2 rounded-md mb-8"
-                placeholder="Password"
-              />
-
                 className="bg-gray-100 w-64 p-2 rounded-md mb-2"
                 placeholder="Password"
               />
@@ -113,7 +99,6 @@ function LoginSignupForm() {
                 <option value="40s">40-49</option>
                 <option value="50+">50 or more</option>
               </select>
-
               <button className="border-2 border-red-600 rounded-full px-12 py-2 inline-block font-semibold text-red-600 hover:bg-red-600 hover:text-white">
                 Sign Up
               </button>
@@ -131,7 +116,7 @@ function LoginSignupForm() {
           <div className="border-2 w-48 border-white mx-auto mb-5"></div>
           <p className="mb-10 ml-3">
             {isLoginMode
-              ? "Create unforgettable concert experiences with us"
+              ? "Create unforgettable concert experiences with us, where every moment is designed to leave a lasting impression and exceed your expectations. "
               : "Welcome back! let's enjoy the unforgettable concert experiences with us"}
           </p>
           <div className="flex justify-center">
