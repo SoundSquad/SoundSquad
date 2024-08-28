@@ -3,8 +3,9 @@ import "./App.css";
 import LoginSignupForm from "./LoginSignupForm";
 import Navbar from "./Navbar";
 import SearchResult from "./SearchResult";
-import "./App.css";
 import ArtistPage from "./ArtistPage";
+import MyPage from './pages/MyPage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/LoginSignupForm" element={<LoginSignupForm />} />
           <Route path="/search" element={<SearchResult />} />
           <Route path="/artist" element={<ArtistPage />} />
+          <Route path="/mypage" element={<MyPage />} />
         </Routes>
       </BrowserRouter>
     </>

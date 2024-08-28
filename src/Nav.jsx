@@ -14,6 +14,8 @@ function Nav() {
         <NavLink to="/LoginSignupForm">Login/Signup</NavLink>
         <NavLink to="/">My Page</NavLink>
         <NavLink to="/artist">Artist Page</NavLink>
+        <NavLink to="/mypage">My Page</NavLink>
+        <NavLink to="/">Artist Page</NavLink>
       </div>
 
       {/* mobile menu button */}
@@ -40,6 +42,9 @@ function Nav() {
           <NavLink to="/" onClick={toggleNav} className="py-2">
             Artist Page
           </NavLink>
+          <NavLink to="/LoginSignupForm" onClick={toggleNav} className="py-2">Login/Signup</NavLink>
+          <NavLink to="/mypage" onClick={toggleNav} className="py-2">My Page</NavLink>
+          <NavLink to="/" onClick={toggleNav} className="py-2">Artist Page</NavLink>
         </div>
       )}
     </nav>
