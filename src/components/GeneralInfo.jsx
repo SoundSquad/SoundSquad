@@ -1,7 +1,55 @@
-// Tab1.js
-import React from 'react';
+import {mockUserInfo} from '../mockUserInfo';
+import {useState, useEffect} from 'react';
+
+
 
 function GeneralInfo() {
+  // const [inputData, setInputData] = useState('');
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
+
+  // useEffect(() => {
+  //   const fetchInitialData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const response = await axios.get('https://api.example.com/initial-input-data');
+  //       setInputData(response.data.initialValue); // 가정: 서버에서 { initialValue: "some data" } 형태로 응답
+  //     } catch (err) {
+  //       setError('초기 데이터를 불러오는 데 실패했습니다.');
+  //       console.error('Error fetching initial data:', err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchInitialData();
+  // }, []);
+
+  // const handleInputChange = (e) => {
+  //   setInputData(e.target.value);
+  // };
+
+  const [userInfo, setUserInfo] = useState({
+    userId: '',
+    email: '',
+    mbti: '',
+    genre: '',
+    age: '',
+    gender: '',
+  });
+
+
+  // 맨 처음 페이지 렌더링 될 때 기존 데이터를 가져오게 하는 코드
+  useEffect( () => {
+    if(mockUserInfo.length > 0){
+      setUserInfo(mockUserInfo[0]);
+    }
+  }, []);
+
+  
+  
+
   return (
       <section className="flex justify-between flex-wrap mb-16">
         <p className="w-full mb-8 text-xl text-[#c3c3c4] font-semibold">
@@ -11,21 +59,21 @@ function GeneralInfo() {
             <p className="text-[#c3c3c4] mb-3">
               ID
             </p>
-            <input type="text" className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]" />
+            <input type="text" value={userInfo.userId} className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]" placeholder={userInfo.userId} />
           </div>
 
           <div className="w-5/12">
             <p className="text-[#c3c3c4] mb-3">
               E-mail
             </p>
-            <input type="email" className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]"/>
+            <input type="email" value={userInfo.email} className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]" placeholder={userInfo.email}/>
           </div>
 
           <div className="w-5/12 mb-10">
             <p className="text-[#c3c3c4] mb-3">
               MBTI
             </p>
-            <input type="text" className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]"/>
+            <input type="text" value={userInfo.mbti} className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]" placeholder={userInfo.mbti}/>
           </div>
 
           <div className="w-5/12">
