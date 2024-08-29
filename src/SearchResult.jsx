@@ -1,4 +1,4 @@
-import { CardDefault } from "./Carddefault";
+import { CardDefault } from "./CardDefault";
 import { useLocation } from "react-router-dom";
 import { mockSearchResults } from "./mockSearchResult";
 
