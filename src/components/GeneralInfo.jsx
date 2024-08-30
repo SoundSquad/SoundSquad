@@ -109,15 +109,17 @@ function GeneralInfo() {
         <select
           name="age"
           id="age"
+          key={userInfo.age}
+          value={userInfo.age}
+          onChange={handleInputChange}
           className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]"
         >
-          <option value="10's">10's</option>
-          <option value="20's">20's</option>
-          <option value="30's">30's</option>
-          <option value="40's">40's</option>
-          <option value="50's">50's</option>
-          <option value="60's">60's</option>
-          <option value="70's">70's</option>
+          <option value="">Select Age</option>
+          <option value="10-19">10-29</option>
+          <option value="20-29">20-29</option>
+          <option value="30-39">30-39</option>
+          <option value="40-49">40-49</option>
+          <option value="50-or-more">50 or more</option>
         </select>
       </div>
 
@@ -126,8 +128,11 @@ function GeneralInfo() {
         <select
           name="gender"
           id="gender"
+          value={userInfo.gender}
+          onChange={handleInputChange}
           className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]"
         >
+          <option value="">Select Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
