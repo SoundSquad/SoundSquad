@@ -1,36 +1,18 @@
 import React from 'react';
 import { CardDefault } from "./CardDefault";
 import { useLocation } from "react-router-dom";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchSearchResults } from "./mockSearchResult";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { useInfiniteScroll } from "./useInfiniteScroll";
 
 function SearchResult() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get("q");
 
-  const { ref, inView } = useInView();
-
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isLoading,
-    isError,
-  } = useInfiniteQuery({
-    queryKey: ['search', query],
-    queryFn: ({ pageParam = 1 }) => fetchSearchResults({ pageParam, query }),
-    getNextPageParam: (lastPage) => lastPage.nextPage,
-  });
-
-  useEffect(() => {
-    if (inView && hasNextPage) {
-      fetchNextPage();
-    }
-  }, [inView, fetchNextPage, hasNextPage]);
+  const { data, isLoading, isError, isFetchingNextPage, ref } = useInfiniteScroll(
+    ['search', query],
+    ({ pageParam = 1 }) => fetchSearchResults({ pageParam, query })
+  );
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error fetching data</div>;
