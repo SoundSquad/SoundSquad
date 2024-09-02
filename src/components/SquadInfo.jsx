@@ -1,10 +1,11 @@
 import React from 'react';
+import MyReview from './MyReview';
 
 function SquadInfo() {
   return (
     <div>
-      <section>
-      </section>
+
+      <MyReview />
       <section>
         내가 작성한  공연 리뷰 <br />
         내가 작성한  스쿼드 리뷰 (점수만) <br />
