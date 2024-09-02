@@ -1,17 +1,58 @@
-import { EventCard } from "./EventCard";
-import { artists } from "./mockArtistData";
+import {Carousel,Card} from "../components/ui/apple-cards-carousel"
 
 function UpcomingEvents() {
-  const artist = artists[0];
+  const cardsData = [
+    {
+      src: "/path/to/image1.jpg",
+      title: "Card 1 Title",
+      category: "Category 1",
+      content: <p>This is the content for Card 1</p>,
+    },
+    {
+      src: "/path/to/image2.jpg",
+      title: "Card 2 Title",
+      category: "Category 2",
+      content: <p>This is the content for Card 2</p>,
+    },
+    {
+      src: "/path/to/image2.jpg",
+      title: "Card 2 Title",
+      category: "Category 2",
+      content: <p>This is the content for Card 2</p>,
+    },
+    {
+      src: "/path/to/image2.jpg",
+      title: "Card 3 Title",
+      category: "Category 2",
+      content: <p>This is the content for Card 2</p>,
+    },
+    {
+      src: "/path/to/image2.jpg",
+      title: "Card 4 Title",
+      category: "Category 2",
+      content: <p>This is the content for Card 2</p>,
+    },
+    {
+      src: "/path/to/image2.jpg",
+      title: "Card 5 Title",
+      category: "Category 2",
+      content: <p>This is the content for Card 2</p>,
+    },
+   
+    // Add more card data as needed
+  ];
+  // const artist = artists[0];
   return (
     <div className="max-w-5xl mx-auto">
       <div className="mt-8  ">
         <h3 className="text-xl font-bold mb-4">Upcoming events</h3>
       </div>
-      <div className="flex space-x-5">
-        {artist.upcomingEvents.map((event) => (
-          <EventCard key={event.id} title={event.title} date={event.date} />
-        ))}
+      <div>
+        <Carousel
+          items={cardsData.map((card, index) => (
+            <Card key={index} card={card} index={index} />
+          ))}
+        />
       </div>
     </div>
   );
