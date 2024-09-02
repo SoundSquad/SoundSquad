@@ -9,3 +9,23 @@ export const mockUserInfo = [
     gender: "male",
   }
 ];
+
+
+export const userReview = [
+  {
+    id: 0,
+    conTitle: "taylor2022",
+    review: "wow wow wow!!!",
+  },
+  {
+    id: 1,
+    conTitle: "taylor2023",
+    review: "wow wow wow!!!!!!!!!",
+  },
+  {
+    id: 2,
+    conTitle: "sabrina2023",
+    review: "work work",
+  }
+
+];

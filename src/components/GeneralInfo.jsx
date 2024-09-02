@@ -24,10 +24,6 @@ function GeneralInfo() {
   //   fetchInitialData();
   // }, []);
 
-  // const handleInputChange = (e) => {
-  //   setInputData(e.target.value);
-  // };
-
   const [userInfo, setUserInfo] = useState({
     userId: "",
     email: "",
