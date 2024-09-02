@@ -1,4 +1,4 @@
-import logo from "./assets/logo.png";
+import logo from "../assets/logo.png";
 import Nav from "./Nav";
 import SearchInput from "./SearchInput";
 

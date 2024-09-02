@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import LoginSignupForm from "./LoginSignupForm";
-import Navbar from "./Navbar";
-import SearchResult from "./SearchResult";
-import ArtistPage from "./ArtistPage";
+import LoginSignupForm from "./pages/LoginSignupForm";
+import Navbar from "./components/Navbar";
+import SearchResult from "./components/SearchResult";
+import ArtistPage from "./pages/ArtistPage";
 import MyPage from './pages/MyPage';
 import Footer from './components/Footer';
 

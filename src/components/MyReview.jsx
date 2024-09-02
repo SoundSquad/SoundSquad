@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {userReview} from "../mockUserInfo";
+import {userReview} from "./mockUserInfo";
 
 const MyReview = () => {
   const [reviews, setReviews] = useState(userReview);

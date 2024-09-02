@@ -1,5 +1,5 @@
 import SubmitBtn from "./SubmitBtn";
-import { mockUserInfo } from "../mockUserInfo";
+import { mockUserInfo } from "./mockUserInfo";
 import { useState } from "react";
 
 function ChangePassword() {

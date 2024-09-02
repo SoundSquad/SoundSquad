@@ -1,7 +1,7 @@
-import { artists } from "./mockArtistData";
-import ArtistProfile from "./ArtistProfile";
-import UpcomingEvents from "./UpcomingEvents";
-import ConcertReviews from "./ConcertReviews";
+import { artists } from "../components/mockArtistData";
+import ArtistProfile from "../components/ArtistProfile";
+import UpcomingEvents from "../components/UpcomingEvents";
+import ConcertReviews from "../components/ConcertReviews";
 
 function ArtistPage() {
   const artist = artists[0];

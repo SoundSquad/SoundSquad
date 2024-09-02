@@ -1,4 +1,4 @@
-import { mockUserInfo } from "../mockUserInfo";
+import { mockUserInfo } from "./mockUserInfo";
 import { useState, useEffect } from "react";
 import SubmitBtn from "./SubmitBtn";
 

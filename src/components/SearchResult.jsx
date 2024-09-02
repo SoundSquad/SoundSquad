@@ -2,7 +2,7 @@ import React from 'react';
 import { CardDefault } from "./CardDefault";
 import { useLocation } from "react-router-dom";
 import { fetchSearchResults } from "./mockSearchResult";
-import { useInfiniteScroll } from "./useInfiniteScroll";
+import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 
 function SearchResult() {
   const location = useLocation();

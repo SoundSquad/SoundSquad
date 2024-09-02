@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "./assets/logo.png";
+import logo from "../assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleLogin } from "@react-oauth/google";
 
