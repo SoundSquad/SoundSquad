@@ -6,6 +6,7 @@ import SearchResult from "./components/SearchResult";
 import ArtistPage from "./pages/ArtistPage";
 import MyPage from './pages/MyPage';
 import Footer from './components/Footer';
+import ConcertDetail from "./pages/ConcertDetail";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/search" element={<SearchResult />} />
           <Route path="/artist" element={<ArtistPage />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="//search/detail/concert" element={<ConcertDetail />}/>
         </Routes>
       </BrowserRouter>
     </>
