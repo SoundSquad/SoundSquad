@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {userReview} from "./mockUserInfo";
+import { ReviewCard } from "./ReviewCard";
 
 const MyReview = () => {
   const [reviews, setReviews] = useState(userReview);
@@ -31,6 +32,7 @@ const MyReview = () => {
 
   return (
     <section>
+      
       <div>
         {reviews.map((review) => (
           <div key={review.id}>
