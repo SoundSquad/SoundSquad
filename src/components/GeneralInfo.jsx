@@ -1,6 +1,7 @@
 import { mockUserInfo } from "./mockUserInfo";
 import { useState, useEffect } from "react";
 import SubmitBtn from "./SubmitBtn";
+import { isElement } from "react-dom/test-utils";
 
 function GeneralInfo() {
   // const [inputData, setInputData] = useState('');
@@ -49,6 +50,15 @@ function GeneralInfo() {
 
   const handleSubmit = () => {
     console.log('Sending general info to backend:', userInfo);
+    setIsEditing(false);
+  }
+
+  const toggleEdit = () => {
+    if(isEditing){
+      handleSubmit();
+    } else{
+      setIsEditing(true);
+    }
   }
 
   return (
@@ -63,7 +73,7 @@ function GeneralInfo() {
           name="userId"
           value={userInfo.userId}
           onChange={handleInputChange}
-          disabled={!isEditing}
+          disabled={true}
           className="w-9/12 rounded-md p-2 border-solid border-2 border-[#e1e1e1]"
         />
       </div>
@@ -133,8 +143,8 @@ function GeneralInfo() {
           <option value="female">Female</option>
         </select>
       </div>
-      <SubmitBtn onClick={isEditing ? handleSubmit : () => setIsEditing(true)} disabled={false}>
-        Update General Info
+      <SubmitBtn onClick={toggleEdit} disabled={false}>
+        {isEditing ? "Save Changes" : "Edit Info"}
       </SubmitBtn>
     </section>
   );
