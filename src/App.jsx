@@ -21,6 +21,7 @@ function App() {
           <Route path="/artist" element={<ArtistPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="//search/detail/concert" element={<ConcertDetail />} />
+          <Route path="/detail/concert" element={<ConcertDetail />}/>
         </Routes>
       </BrowserRouter>
     </>
