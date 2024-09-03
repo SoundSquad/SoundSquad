@@ -40,3 +40,11 @@ export const squadReview = [
     num: 4,
   },
 ];
+
+
+export const tourInfo = [
+  {
+    id: 0,
+    tourName: ""
+  }
+]
