@@ -13,6 +13,9 @@ function ArtistPage() {
         description={artist.description}
         imageUrl={artist.imageUrl}
       />
+      
+        <h3 className="text-xl font-bold">Upcoming events</h3>
+     
       <UpcomingEvents events={artist.UpcomingEvents} />
       <ConcertReviews />
     </div>
