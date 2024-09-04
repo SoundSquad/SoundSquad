@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 import { CardDefault } from "./CardDefault";
 import { useLocation } from "react-router-dom";
-import { fetchSearchResults } from "./mockSearchResult";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
+import { fetchSearchResults } from "../api/search";
 
 function SearchResult() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const query = searchParams.get("q");
+  const query = searchParams.get("artist_name");
 
-  const { data, isLoading, isError, isFetchingNextPage, ref } = useInfiniteScroll(
-    ['search', query],
-    ({ pageParam = 1 }) => fetchSearchResults({ pageParam, query })
-  );
+  const { data, isLoading, isError, isFetchingNextPage, ref } =
+    useInfiniteScroll(["search", query], ({ pageParam = 1 }) =>
+      fetchSearchResults({ pageParam, query })
+    );
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error fetching data</div>;
@@ -26,10 +26,10 @@ function SearchResult() {
             <React.Fragment key={i}>
               {page.results.map((result) => (
                 <CardDefault
-                  key={result.id}
-                  singerName={result.singerName}
-                  imageUrl={result.imageUrl}
-                  description={result.description}
+                  key={result.artist_num}
+                  singerName={result.artist_name}
+                  imageUrl={result.artist_profile}
+                  description={result.artist_genre}
                 />
               ))}
             </React.Fragment>
@@ -39,7 +39,7 @@ function SearchResult() {
         <p>No results found for your search query.</p>
       )}
       {isFetchingNextPage ? <div>Loading more...</div> : null}
-      <div ref={ref} style={{ height: '20px' }}></div>
+      <div ref={ref} style={{ height: "20px" }}></div>
     </div>
   );
 }
