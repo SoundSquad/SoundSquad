@@ -2,12 +2,62 @@ import { useState } from "react";
 import logo from "../assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { TbWashDryP } from "react-icons/tb";
 
 function LoginSignupForm() {
   const [isLoginMode, setIsLoginMode] = useState(true);
+  const [loginData, setLoginData] = useState({ user_id: "", user_pw: "" });
+  const [signupData, setSignupData] = useState({
+    user_id: "",
+    user_pw: "",
+    user_gender: "",
+    user_bd: "",
+  });
+
+  const [error, setError] = useState("");
 
   const toggleMode = () => {
     setIsLoginMode(!isLoginMode);
+    setError("");
+  };
+
+  const handleLoginChange = (e) => {
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+  };
+
+  const handleSignupChange = (e) => {
+    setSignupData({ ...signupData, [e.target.name]: e.target.value });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/user/login",
+        loginData
+      );
+      console.log("login sucess", response.data);
+    } catch (err) {
+      setError(err.response?.data?.msg || "login failed");
+    }
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/user/register",
+        signupData
+      );
+      console.log("signup sucess", response.data);
+    } catch (err) {
+      setError(err.response?.data?.msg || "Signup failed");
+    }
   };
 
   return (
@@ -44,21 +94,31 @@ function LoginSignupForm() {
             <p className="text-center text-gray-400 my-3">
               or use your account
             </p>
-            <div className="flex flex-col items-center">
+            {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+            <form onSubmit={handleLogin} className="flex flex-col items-center">
               <input
                 type="text"
+                name="user_id"
                 className="bg-gray-100 w-64 p-2 mb-2 rounded-md"
                 placeholder="ID"
+                value={loginData.user_id}
+                onChange={handleLoginChange}
               />
               <input
                 type="password"
+                name="user_pw"
                 className="bg-gray-100 w-64 p-2 rounded-md mb-8"
                 placeholder="Password"
+                value={loginData.user_pw}
+                onChange={handleLoginChange}
               />
-              <button className="border-2 border-red-600 rounded-full px-12 py-2 inline-block font-semibold text-red-600 hover:bg-red-600 hover:text-white">
+              <button
+                type="submit"
+                className="border-2 border-red-600 rounded-full px-12 py-2 inline-block font-semibold text-red-600 hover:bg-red-600 hover:text-white"
+              >
                 Login
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -75,23 +135,42 @@ function LoginSignupForm() {
             </h2>
             <div className="border-2 w-28 border-red-600 mx-auto mb-6"></div>
 
-            <div className="flex flex-col items-center">
+            <form
+              onSubmit={handleSignup}
+              className="flex flex-col items-center"
+            >
               <input
                 type="text"
+                name="user_id"
                 className="bg-gray-100 w-64 p-2 mb-2 rounded-md"
                 placeholder="ID"
+                value={signupData.user_id}
+                onChange={handleSignupChange}
               />
               <input
                 type="password"
+                name="user_pw"
                 className="bg-gray-100 w-64 p-2 rounded-md mb-2"
                 placeholder="Password"
+                value={signupData.user_pw}
+                onChange={handleSignupChange}
               />
-              <select className="bg-gray-100 w-64 p-2 rounded-md mb-2">
+              <select
+                name="user_gender"
+                className="bg-gray-100 w-64 p-2 rounded-md mb-2"
+                value={signupData.user_gender}
+                onChange={handleSignupChange}
+              >
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
-              <select className="bg-gray-100 w-64 p-2 rounded-md mb-8">
+              <select
+                name="user_bd"
+                className="bg-gray-100 w-64 p-2 rounded-md mb-8"
+                value={signupData.user_bd}
+                onChange={handleSignupChange}
+              >
                 <option value="">Select Age Group</option>
                 <option value="10s">10-19</option>
                 <option value="20s">20-29</option>
@@ -99,10 +178,13 @@ function LoginSignupForm() {
                 <option value="40s">40-49</option>
                 <option value="50+">50 or more</option>
               </select>
-              <button className="border-2 border-red-600 rounded-full px-12 py-2 inline-block font-semibold text-red-600 hover:bg-red-600 hover:text-white">
+              <button
+                type="submit"
+                className="border-2 border-red-600 rounded-full px-12 py-2 inline-block font-semibold text-red-600 hover:bg-red-600 hover:text-white"
+              >
                 Sign Up
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
