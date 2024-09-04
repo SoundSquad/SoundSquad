@@ -35,7 +35,7 @@ function GeneralInfo() {
           email: response.data.data.email || "",
           mbti: response.data.data.mbti || "",
           genre: response.data.data.prefer_genre || "",
-          birthDate: response.data.data.user_bd || "",
+          age: response.data.data.user_bd || "",
           gender: response.data.data.user_gender === 1 ? "male" : "female",
         });
       }
@@ -47,10 +47,20 @@ function GeneralInfo() {
     }
   };
 
-  const handleInputChange = (e) => {
-    const {name, value} = e.target;
-    setUserInfo(prevState => ({...prevState, [name]: value}));
-  }
+  const handleInputChange = async () => {
+    try{
+      const response = await axios.put('http://localhost:8080/mypage/user', {
+        user_id: userInfo.userId,
+        mbti: userInfo.mbti,
+        prefer_genre: userInfo.genre,
+        age: userInfo.age,
+        
+      })
+    } catch (err) {
+      console.log('사용자 업데이트 실패', err);
+      setError('사용자 정보 업데이트 실패');
+    }
+  };
 
   const handleSubmit = () => {
     console.log('Sending general info to backend:', userInfo);
