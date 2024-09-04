@@ -9,12 +9,9 @@ function MainPage() {
       <div className="w-full max-w-4xl">
         <InfiniteMovingCards />
         <h3 className="text-xl font-bold mb-4 mt-4">Profile</h3>
-        <UpcomingEvents />
+        {/* <UpcomingEvents /> */}
         <GenreBtn />
         <div className="mt-24 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-11">
-          <CardDefault />
-          <CardDefault />
-          <CardDefault />
           <CardDefault />
         </div>
       </div>

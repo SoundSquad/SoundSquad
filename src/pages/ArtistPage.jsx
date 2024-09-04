@@ -17,6 +17,7 @@ function ArtistPage() {
         const response = await axios.get(
           `http://localhost:8080/search/detail/artist?artist_num=${artist_num}`
         );
+        console.log(response)
         setArtist(response.data.data);
         setLoading(false);
       } catch (err) {
@@ -29,6 +30,7 @@ function ArtistPage() {
 
   if (loading) return <div>loading...</div>;
   if (error) return <div>{error}</div>;
+
 
   return (
     <div className="container mx-auto px-4">
