@@ -120,12 +120,12 @@ const ConcertDetail = () => {
       <section className="text-center">
         <img src={concertData.concert_image} className="inline" alt="" />
       </section>
-
+{/* 
       <section>
         <p>Artist: {artist.name}</p>
         <p>description: {artist.description}</p>
         <p>ticket link: dsfsdfsdf.com</p>
-      </section>
+      </section> */}
 
       <section>
         <InputWithButton />
