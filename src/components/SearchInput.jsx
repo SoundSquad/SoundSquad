@@ -7,7 +7,7 @@ function SearchInput() {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+      navigate(`/search?artist_name=${encodeURIComponent(searchQuery)}`);
     }
   };
 
