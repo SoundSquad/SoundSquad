@@ -1,30 +1,8 @@
-import { mockUserInfo } from "./mockUserInfo";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import SubmitBtn from "./SubmitBtn";
-import { isElement } from "react-dom/test-utils";
 
 function GeneralInfo() {
-  // const [inputData, setInputData] = useState('');
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchInitialData = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const response = await axios.get('https://api.example.com/initial-input-data');
-  //       setInputData(response.data.initialValue); // 가정: 서버에서 { initialValue: "some data" } 형태로 응답
-  //     } catch (err) {
-  //       setError('초기 데이터를 불러오는 데 실패했습니다.');
-  //       console.error('Error fetching initial data:', err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchInitialData();
-  // }, []);
-
   const [userInfo, setUserInfo] = useState({
     userId: "",
     email: "",
@@ -35,13 +13,39 @@ function GeneralInfo() {
   });
 
   const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
 
   // 맨 처음 페이지 렌더링 될 때 기존 데이터를 가져오게 하는 코드
   useEffect(() => {
-    if (mockUserInfo.length > 0) {
-      setUserInfo(mockUserInfo[0]);
-    }
+    fetchUserInfo();
   }, []);
+
+  const fetchUserInfo = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get('http://localhost:8080/mypage/user', {
+        params: { user_num: 1 }, // 실제 사용자 번호로 대체해야 합니다
+        withCredentials: true // 쿠키를 포함시키기 위해 필요합니다        
+      });
+      if (response.data && response.data.data) {
+        setUserInfo({
+          userId: response.data.data.user_id,
+          email: response.data.data.email || "",
+          mbti: response.data.data.mbti || "",
+          genre: response.data.data.prefer_genre || "",
+          birthDate: response.data.data.user_bd || "",
+          gender: response.data.data.user_gender === 1 ? "male" : "female",
+        });
+      }
+    } catch (err) {
+      console.error('Error fetching user info:', err);
+      setError('사용자 정보를 불러오는 데 실패했습니다.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleInputChange = (e) => {
     const {name, value} = e.target;
