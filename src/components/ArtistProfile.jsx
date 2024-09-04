@@ -1,4 +1,4 @@
-function ArtistProfile({ name, description, imageUrl }) {
+function ArtistProfile({ name, imageUrl }) {
   return (
     <div className="max-w-4xl mx-auto mt-8 p-4">
       <div className="bg-gray-100 p-4 mb-4 rounded-lg">
@@ -13,7 +13,6 @@ function ArtistProfile({ name, description, imageUrl }) {
         </div>
       </div>
       <h2 className="text-2xl font-bold mb-2">{name}</h2>
-      <div className="mb-4">{description}</div>
     </div>
   );
 }

@@ -7,9 +7,9 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-export function CardDefault({ singerName, imageUrl, description }) {
+export function CardDefault({ singerName, imageUrl, description, onClick }) {
   return (
-    <Card className="mt-6 w-96">
+    <Card className="mt-6 w-96 cursor-pointer" onClick={onClick}>
       <CardHeader color="blue-gray" className="relative h-56">
         <img src={imageUrl} alt={singerName} />
       </CardHeader>

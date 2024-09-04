@@ -1,11 +1,12 @@
 import React from "react";
 import { CardDefault } from "./CardDefault";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 import { fetchSearchResults } from "../api/search";
 
 function SearchResult() {
   const location = useLocation();
+  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get("artist_name");
 
@@ -16,6 +17,10 @@ function SearchResult() {
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error fetching data</div>;
+
+  const handleCardClick = (artist_num) => {
+    navigate(`/artist/${artist_num}`);
+  };
 
   return (
     <div className="container mx-auto mt-8 px-4">
@@ -30,6 +35,7 @@ function SearchResult() {
                   singerName={result.artist_name}
                   imageUrl={result.artist_profile}
                   description={result.artist_genre}
+                  onClick={() => handleCardClick(result.artist_num)}
                 />
               ))}
             </React.Fragment>
