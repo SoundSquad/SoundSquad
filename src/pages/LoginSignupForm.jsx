@@ -39,7 +39,9 @@ function LoginSignupForm() {
         "http://localhost:8080/user/login",
         loginData
       );
+      const { user_num } = response.data;
       console.log("login sucess", response.data);
+      localStorage.setItem("user_num", user_num);
     } catch (err) {
       setError(err.response?.data?.msg || "login failed");
     }
