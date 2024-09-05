@@ -141,7 +141,7 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
   );
 };
 
-export const Card = ({ card, index, layout = false }) => {
+export const Card = ({ card, index, layout = false, onClick }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
   const { onCardClose, currentIndex } = useContext(CarouselContext);
@@ -167,6 +167,9 @@ export const Card = ({ card, index, layout = false }) => {
 
   const handleOpen = () => {
     setOpen(true);
+    if (onClick) {
+      onClick()
+    }
   };
 
   const handleClose = () => {

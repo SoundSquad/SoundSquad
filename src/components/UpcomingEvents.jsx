@@ -1,7 +1,11 @@
 import { Carousel, Card } from "../components/ui/apple-cards-carousel";
+import { useNavigate } from "react-router-dom";
 
 function UpcomingEvents({ events }) {
-  console.log("events props", events);
+  const navigate = useNavigate();
+  const handleCardClick = (concert_num) => {
+    navigate(`/concert/${concert_num}`);
+  };
   return (
     <div className="max-w-5xl mx-auto">
       <div>
@@ -15,6 +19,7 @@ function UpcomingEvents({ events }) {
                 src: event.concert_image,
               }}
               index={index}
+              onClick={() => handleCardClick(event.concert_num)}
             />
           ))}
         />

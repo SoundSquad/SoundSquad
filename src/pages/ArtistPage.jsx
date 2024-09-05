@@ -17,7 +17,6 @@ function ArtistPage() {
         const response = await axios.get(
           `http://localhost:8080/search/detail/artist?artist_num=${artist_num}`
         );
-        console.log(response)
         setArtist(response.data.data);
         setLoading(false);
       } catch (err) {

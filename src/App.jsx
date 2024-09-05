@@ -20,7 +20,7 @@ function App() {
           <Route path="/search" element={<SearchResult />} />
           <Route path="/artist/:artist_num" element={<ArtistPage />} />
           <Route path="/mypage" element={<MyPage />} />
-          <Route path="/detail/concert" element={<ConcertDetail />} />
+          <Route path="/concert/:concert_num" element={<ConcertDetail />} />
         </Routes>
       </BrowserRouter>
     </>
