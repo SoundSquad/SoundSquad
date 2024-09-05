@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { GoogleLogin } from "@react-oauth/google";
@@ -42,6 +43,14 @@ function LoginSignupForm() {
       const { user_num } = response.data;
       console.log("login sucess", response.data);
       localStorage.setItem("user_num", user_num);
+
+      if (user_num) {
+        localStorage.setItem("user_num", user_num);
+        console.log("user_num stored in localStorage:", localStorage.getItem("user_num"));  // 저장 확인 로그
+        navigate('/');
+      } else {
+        throw new Error("User number not found in response");
+      }
     } catch (err) {
       setError(err.response?.data?.msg || "login failed");
     }
